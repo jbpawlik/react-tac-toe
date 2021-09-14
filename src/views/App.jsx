@@ -1,43 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
-import { gameOperations } from '../state/ducks/game';
 
+import { withStyles } from 'material-ui/styles';
 
-const App = ({ player, playTurn}) => {
-  const handleClick = () => {
-    playTurn(player, 0, 1);
-  };
+import Game from './containers/Game.jsx';
 
+const styles = (theme) => ({
+  content: {
+    // take into account the app/toolbar 
+    paddingTop: theme.mixins.toolbar.minHeight + 10
+  }
+});
+
+const App = ({ classes }) => {
   return (
     <div>
-      <h2>Hello Tic Tac Toe!</h2>
-      <p>
-        Current Player is: {player}
-      </p>
-      <p>
-        <button onClick={handleClick}>Make a move</button>
-      </p>
+      <div>
+        <header>
+          <h2>Tic Tac Toe - Appbar/menu here...</h2>
+        </header>
+      </div>
+      <div className={classes.content}>
+        <section>
+          <Game />
+        </section>
+      </div>
     </div>
   );
 };
 
-const {number, func} = PropTypes;
 App.propTypes = {
-  player: number.isRequired,
-  playTurn: func.isRequired
+  classes: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => {
-const { gameState } = state;
-  return {
-    player: gameState.player,
-    winner: gameState.winner
-  }
-}
-
-const mapDispatchToProps = {
-  playTurn: gameOperations.playTurn
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withStyles(styles)(App);
