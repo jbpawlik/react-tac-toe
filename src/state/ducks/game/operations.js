@@ -1,4 +1,4 @@
-import { newGame, gameover, switchPlayer, winnder, movePlayer } from "./actions";
+import { newGame, gameover, switchPlayer, winner, movePlayer } from "./actions";
 import { isWinner, isDraw } from '../../utils/game';
 
 const checkWinner = (board, player) => (dispatch) => {

@@ -21,7 +21,7 @@ const isWinner = (board, player) => {
 };
 
 const isDraw = (board) => {
-  const notDraw = board.some(row => row.som(col => col === 0));
+  const notDraw = board.some(row => row.some(col => col === 0));
 
   return !notDraw;
 };
