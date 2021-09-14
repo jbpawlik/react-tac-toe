@@ -1,0 +1,35 @@
+{
+  "name": "react-tac-toe",
+  "version": "1.0.0",
+  "description": "A Tic Tac Toe Game in React",
+  "main": "index.js",
+  "repository": "https://github.com/jbpawlik/react-tac-toe",
+  "author": "James Benjamin Pawlik <james.benjamin.pawlik@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "yarn clean && webpack --config webpack.config.js --progress",
+    "start": "webpack-dev-server --config webpack.config.js --open",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.2.0",
+    "redux-thunk": "^2.3.0",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
+  }
+}
