@@ -2,13 +2,18 @@ import { newGame, gameover, switchPlayer, winner, movePlayer } from "./actions";
 import { isWinner, isDraw } from '../../utils/game';
 
 const checkWinner = (board, player) => (dispatch) => {
+
+  let hasWinner = true;
   if (isWinner(board, player)) {
     dispatch(winner(player));
     dispatch(gameover());
   } else if (isDraw(board)) {
     dispatch(winner(0));
     dispatch(gameover());
+  } else {
+    hasWinner = false;
   }
+  return hasWinner;
 };
 
 const playTurn = (player, row, col) => (dispatch) => {
