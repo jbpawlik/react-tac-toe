@@ -21,3 +21,5 @@ PlayerInfo.propTypes = {
   player: number.isRequired,
   gameover: bool.isRequired
 };
+
+export default PlayerInfo;
